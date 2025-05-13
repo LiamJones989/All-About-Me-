@@ -1,11 +1,25 @@
-// DARK MODE TOGGLE
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.getElementById("modeToggle");
+
+  // 🔄 Load saved theme from localStorage
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    toggle.checked = true;
+  }
+
+  // 🌗 Toggle dark mode and save setting
   toggle.addEventListener("change", () => {
-    document.body.classList.toggle("dark");
+    if (toggle.checked) {
+      document.body.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
   });
 
-  // JOKE GENERATOR
+  // 😂 Joke generator
   const jokeButton = document.getElementById("jokeButton");
   const jokeDisplay = document.getElementById("jokeDisplay");
 
