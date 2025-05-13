@@ -6,13 +6,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Sidebar -->
   <div class="sidebar">
     <h2>🔧 Settings</h2>
-    <label class="switch">
-      <input type="checkbox" id="modeToggle">
-      <span class="slider"></span>
-    </label>
-    <p>Dark Mode</p>
+    <div class="toggle-group">
+      <label for="modeToggle">Dark Mode</label>
+      <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
 
     <h2>🔗 Links</h2>
     <ul>
@@ -26,6 +29,7 @@
     <p>Discord: fork11</p>
   </div>
 
+  <!-- Main Content -->
   <div class="container">
     <h1>Hi, I'm Liam</h1>
     <img src="Me.jpg" alt="My Photo" class="profile-photo">
