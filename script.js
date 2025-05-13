@@ -36,10 +36,29 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 let count = 0;
+let highScore = localStorage.getItem('clickerHighScore') || 0;
+
 const clickerButton = document.getElementById('clickerButton');
 const clickCount = document.getElementById('clickCount');
+const highScoreDisplay = document.getElementById('highScore');
+const resetButton = document.getElementById('resetButton');
+
+clickCount.textContent = count;
+highScoreDisplay.textContent = highScore;
 
 clickerButton.addEventListener('click', () => {
   count++;
   clickCount.textContent = count;
+
+  if (count > highScore) {
+    highScore = count;
+    highScoreDisplay.textContent = highScore;
+    localStorage.setItem('clickerHighScore', highScore);
+  }
 });
+
+resetButton.addEventListener('click', () => {
+  count = 0;
+  clickCount.textContent = count;
+});
+
