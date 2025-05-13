@@ -128,7 +128,7 @@ input:checked + .slider::before {
 .clicker-game {
   margin-top: 40px;
   padding: 20px;
-  background-color: #e0f7ff;
+  background-color: #4f8c67;
   border-radius: 12px;
   text-align: center;
 }
