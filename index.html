@@ -4,8 +4,107 @@
   <meta charset="UTF-8" />
   <title>About Me - Liam</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      position: relative;
+    }
+
+    .wave-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    .wave {
+      width: 100%;
+      height: 100%;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 240px;
+      height: 100%;
+      background-color: #ffffffcc;
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 1;
+    }
+
+    .container {
+      margin-left: 260px;
+      padding: 40px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .profile-photo {
+      width: 150px;
+      border-radius: 10px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider.round {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 34px;
+      transition: 0.4s;
+    }
+
+    .slider.round:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider.round {
+      background-color: #2196f3;
+    }
+
+    input:checked + .slider.round:before {
+      transform: translateX(26px);
+    }
+  </style>
 </head>
 <body>
+  <!-- Light Blue Wave Background -->
+  <div class="wave-container">
+    <svg class="wave" viewBox="0 0 1440 320">
+      <path fill="#b3e5fc" fill-opacity="1" d="M0,128L60,133.3C120,139,240,149,360,149.3C480,149,600,139,720,122.7C840,107,960,85,1080,96C1200,107,1320,149,1380,170.7L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+    </svg>
+  </div>
+
   <!-- Sidebar -->
   <div class="sidebar">
     <h2>🔧 Settings</h2>
