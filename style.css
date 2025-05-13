@@ -1,4 +1,4 @@
-/* Root Colors */
+/* Base Theme Variables */
 :root {
   --bg-color: #f0f0f0;
   --text-color: #222;
@@ -23,27 +23,33 @@ body {
   display: flex;
 }
 
+/* Sidebar Layout */
 .sidebar {
-  width: 240px;
+  width: 250px;
   background: var(--sidebar-bg);
   padding: 20px;
   height: 100vh;
   position: fixed;
+  box-sizing: border-box;
 }
 
+/* Main Content Layout */
 .container {
-  margin-left: 260px;
+  margin-left: 270px;
   padding: 30px;
   background: var(--container-bg);
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
+/* Profile Photo */
 .profile-photo {
   width: 150px;
   border-radius: 50%;
   margin: 20px 0;
 }
 
+/* Joke Button */
 #jokeButton {
   padding: 10px 20px;
   background-color: #007acc;
@@ -58,3 +64,63 @@ body {
   font-style: italic;
 }
 
+/* Toggle Switch Slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #007acc;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.toggle-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.toggle-label {
+  font-size: 16px;
+}
