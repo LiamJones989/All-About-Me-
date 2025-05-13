@@ -1,14 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.getElementById("modeToggle");
 
-  // 🔄 Load saved theme from localStorage
+  // Apply saved theme
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     document.body.classList.add("dark");
     toggle.checked = true;
   }
 
-  // 🌗 Toggle dark mode and save setting
   toggle.addEventListener("change", () => {
     if (toggle.checked) {
       document.body.classList.add("dark");
@@ -19,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 😂 Joke generator
+  // Joke generator
   const jokeButton = document.getElementById("jokeButton");
   const jokeDisplay = document.getElementById("jokeDisplay");
 
