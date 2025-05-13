@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     jokeDisplay.textContent = jokes[randomIndex];
   });
 });
+// Clicker Game logic
 let count = 0;
 let highScore = localStorage.getItem('clickerHighScore') || 0;
 
@@ -49,7 +50,6 @@ highScoreDisplay.textContent = highScore;
 clickerButton.addEventListener('click', () => {
   count++;
   clickCount.textContent = count;
-
   if (count > highScore) {
     highScore = count;
     highScoreDisplay.textContent = highScore;
