@@ -1,7 +1,7 @@
-/* Theme Colors */
+/* Root Colors */
 :root {
   --bg-color: #f0f0f0;
-  --text-color: #333;
+  --text-color: #222;
   --container-bg: white;
   --sidebar-bg: #ddd;
   --link-color: #007acc;
@@ -15,7 +15,6 @@ body.dark {
   --link-color: #66ccff;
 }
 
-/* Layout */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -24,99 +23,19 @@ body {
   display: flex;
 }
 
-/* Sidebar */
 .sidebar {
   width: 240px;
   background: var(--sidebar-bg);
   padding: 20px;
   height: 100vh;
-  box-sizing: border-box;
   position: fixed;
 }
 
-.sidebar h2 {
-  margin-top: 0;
-  color: var(--text-color);
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin: 10px 0;
-}
-
-.sidebar a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-.sidebar a:hover {
-  text-decoration: underline;
-}
-
-.toggle-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-/* Toggle Switch */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 22px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  background-color: #ccc;
-  border-radius: 22px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #007acc;
-}
-
-input:checked + .slider:before {
-  transform: translateX(18px);
-}
-
-/* Main Content */
 .container {
   margin-left: 260px;
   padding: 30px;
   background: var(--container-bg);
   min-height: 100vh;
-  box-sizing: border-box;
 }
 
 .profile-photo {
@@ -132,15 +51,9 @@ input:checked + .slider:before {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-bottom: 10px;
-}
-
-#jokeButton:hover {
-  background-color: #005fa3;
 }
 
 #jokeDisplay {
-  font-style: italic;
   margin-top: 10px;
+  font-style: italic;
 }
-
