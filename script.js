@@ -35,3 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
     jokeDisplay.textContent = jokes[randomIndex];
   });
 });
+let count = 0;
+const clickerButton = document.getElementById('clickerButton');
+const clickCount = document.getElementById('clickCount');
+
+clickerButton.addEventListener('click', () => {
+  count++;
+  clickCount.textContent = count;
+});
