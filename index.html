@@ -1,87 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>About Me - Liam</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Liam Jones — Builder & Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>🔧 Settings</h2>
-    <div class="toggle-group">
-      <label class="toggle-label">Dark Mode</label>
-      <label class="switch">
-        <input type="checkbox" id="modeToggle" />
-        <span class="slider round"></span>
-      </label>
+
+  <!-- ===== Status bar / signature element ===== -->
+  <div class="statusbar">
+    <div class="statusbar__group">
+      <span class="statusbar__dot" aria-hidden="true"></span>
+      <span class="statusbar__item">STATUS <b>online</b></span>
     </div>
-
-    <h2>🔗 Links</h2>
-    <ul>
-      <li><a href="https://github.com/LiamJones989" target="_blank">My GitHub</a></li>
-      <li><a href="https://discord.gg/QwVZ7mFYqu" target="_blank">Discord Server</a></li>
-    </ul>
-
-    <h2>📁 Projects</h2>
-    <ul>
-      <li><a href=" https://liamjones989.github.io/pc-paramedic/" target="_blank">PC Paramedic (My Computer Repair Service)</a></li>
-      
-      <li><a href="https://liamjones989.github.io/If-I-Ran-The-World/" target="_blank">If I Ran The World</a></li>
-      
-      <li><a href="https://liamjones989.github.io/Famous-Flyers/" target="_blank">Just a map project and some "Famous Flights"</a></li>
-      
-      <li><a href="https://liamjones989.github.io/Conspiracy-Theory-Generator/" target="_blank">Funny Conspiracy Theory Generator</a></li>
-
-      <li><a href="https://liamjones989.github.io/Poppy-Plant-Hackathon/" target="_blank">The Virtual Pet Plant</a></li>
-
-      <li><a href="https://liamjones989.github.io/EarthScaleMC/" target="_blank">EarthScaleMC, My Minecraft Server</a></li>
-
-      <li><a href="https://titanhd.org/" target="_blank">My Home Server</a></li>
-    </ul>
-
-    <h2>📨 Contact</h2>
-    <p>PLEASE DONATE TO HELP KEEP ME DOING THIS</p>
-    <p>CASHAPP: $LiamJones67</p>
-    <p>VENMO: @Liam-Jones-74</p>
-    <p>Email: liamjones989@outlook.com</p>
-    <p>Discord: fork11</p>
-    <p>Steam: fork</p>
+    <div class="statusbar__group statusbar__group--center">
+      <span class="statusbar__item" id="clock">--:--:--</span>
+      <span class="statusbar__sep">·</span>
+      <span class="statusbar__item">uptime <b id="uptime">0s</b></span>
+    </div>
+    <div class="statusbar__group">
+      <span class="statusbar__item statusbar__item--build">build v2.1</span>
+      <button class="navToggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 
-  <!-- Main Content -->
-  <div class="container">
+  <div class="layout">
 
-    <h1>Hi, I'm Liam</h1>
-    <img src="Me.jpg" alt="My Photo" class="profile-photo" />
-    <p>
-      I'm in high school. I love music, coding, and building cool stuff with technology.
-      I also have experience in coding, 3D modeling, and video games.
-    </p>
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar" id="sidebar">
 
-    <h2>🎯 Interests</h2>
-    <ul>
-      <li>Football</li>
-      <li>Music (Eminem, Juice WRLD, Kanye West, Radiohead, Men at Work)</li>
-      <li>Coding GitHub projects and video games</li>
-      <li>I want to go into either engineering or coding</li>
-    </ul>
+      <div class="sidebar__profile">
+        <img src="Me.jpg" alt="Liam Jones" class="sidebar__avatar" />
+        <div>
+          <p class="sidebar__name">Liam Jones</p>
+          <p class="sidebar__role">student · developer</p>
+        </div>
+      </div>
 
-    <h2>😂 Random Joke Generator</h2>
-    <button id="jokeButton">Tell Me a Joke</button>
-    <p id="jokeDisplay"></p>
+      <nav class="sidebar__nav" aria-label="Page sections">
+        <a href="#about">About</a>
+        <a href="#interests">Interests</a>
+        <a href="#projects">Projects</a>
+        <a href="#fun">Fun Zone</a>
+      </nav>
 
-    <!-- Clicker Game Section -->
-    <div class="clicker-game">
-      <h2>🖱️ Clicker Game</h2>
-      <p>Click the button as many times as you can!</p>
-      <button id="clickerButton">Click Me!</button>
-      <p>Clicks: <span id="clickCount">0</span></p>
-      <p>🏆 High Score: <span id="highScore">0</span></p>
-      <button id="resetButton">Reset</button>
-    </div>
+      <div class="sidebar__section">
+        <p class="sidebar__label">// appearance</p>
+        <div class="toggle-row">
+          <span>Dark mode</span>
+          <label class="switch">
+            <input type="checkbox" id="modeToggle" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
 
+      <div class="sidebar__section">
+        <p class="sidebar__label">// elsewhere</p>
+        <ul class="linklist">
+          <li>
+            <a href="https://github.com/LiamJones989" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://discord.gg/QwVZ7mFYqu" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.5 3.4a13 13 0 0 0-3.2-1l-.16.32a11.6 11.6 0 0 1 2.83.98 12.9 12.9 0 0 0-9.94 0 11 11 0 0 1 2.85-.99L5.7 2.4a13 13 0 0 0-3.2 1C.9 6 .4 8.5.6 11a13.3 13.3 0 0 0 3.98 2l.6-1a8.2 8.2 0 0 1-1.28-.62c.11-.08.21-.16.31-.25a10.4 10.4 0 0 0 8.6 0c.1.09.2.17.31.25-.4.24-.83.45-1.28.62l.6 1a13.3 13.3 0 0 0 3.98-2c.24-2.87-.5-5.35-2.32-7.6ZM5.87 9.7c-.62 0-1.13-.58-1.13-1.28 0-.71.5-1.29 1.13-1.29.64 0 1.15.59 1.13 1.29 0 .7-.5 1.28-1.13 1.28Zm4.26 0c-.62 0-1.13-.58-1.13-1.28 0-.71.5-1.29 1.13-1.29.64 0 1.14.59 1.13 1.29 0 .7-.5 1.28-1.13 1.28Z"/></svg>
+              Discord
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar__section sidebar__support">
+        <p class="sidebar__label">// support</p>
+        <p class="support__blurb">Projects like these run on spare time and spare change. If something here helped or made you smile, a tip keeps it going.</p>
+        <ul class="copylist">
+          <li>
+            <span class="copylist__label">CashApp</span>
+            <button class="copybtn" data-copy="$LiamJones67">$LiamJones67</button>
+          </li>
+          <li>
+            <span class="copylist__label">Venmo</span>
+            <button class="copybtn" data-copy="@Liam-Jones-74">@Liam-Jones-74</button>
+          </li>
+          <li>
+            <span class="copylist__label">Email</span>
+            <button class="copybtn" data-copy="liamjones989@outlook.com">liamjones989@outlook.com</button>
+          </li>
+          <li>
+            <span class="copylist__label">Discord</span>
+            <button class="copybtn" data-copy="fork11">fork11</button>
+          </li>
+          <li>
+            <span class="copylist__label">Steam</span>
+            <button class="copybtn" data-copy="fork">fork</button>
+          </li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- ===== backdrop for mobile drawer ===== -->
+    <div class="backdrop" id="backdrop"></div>
+
+    <!-- ===== Main content ===== -->
+    <main class="main">
+
+      <!-- Hero -->
+      <section class="hero">
+        <p class="eyebrow">// whoami</p>
+        <h1 class="hero__title">Liam Jones<span class="cursor" aria-hidden="true">_</span></h1>
+        <p class="hero__subtitle">High schooler building things with code, circuits, and way too many side projects.</p>
+        <div class="hero__cta">
+          <a href="#projects" class="btn btn--primary">See my projects</a>
+          <a href="#fun" class="btn btn--ghost">Just here to click a button</a>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="section" id="about">
+        <p class="eyebrow">// 01 about</p>
+        <h2 class="section__title">A little about me</h2>
+        <div class="about__grid">
+          <p class="about__text">
+            I'm in high school, and most of my free time goes into coding, 3D modeling, and
+            building whatever idea won't leave me alone. I like taking a project from a blank
+            file to something people can actually click around in — whether that's a website,
+            a game, or a server other people play on.
+          </p>
+          <p class="about__text">
+            I'm aiming toward engineering or software down the line, but for now I'm just
+            trying to ship things, break things, and learn from both.
+          </p>
+        </div>
+      </section>
+
+      <!-- Interests -->
+      <section class="section" id="interests">
+        <p class="eyebrow">// 02 interests</p>
+        <h2 class="section__title">What I'm into</h2>
+
+        <div class="tag-group">
+          <p class="tag-group__label">Playing</p>
+          <div class="tags">
+            <span class="tag">Football</span>
+          </div>
+        </div>
+
+        <div class="tag-group">
+          <p class="tag-group__label">Listening to</p>
+          <div class="tags">
+            <span class="tag">Eminem</span>
+            <span class="tag">Juice WRLD</span>
+            <span class="tag">Kanye West</span>
+            <span class="tag">Radiohead</span>
+            <span class="tag">Men at Work</span>
+          </div>
+        </div>
+
+        <div class="tag-group">
+          <p class="tag-group__label">Building</p>
+          <div class="tags">
+            <span class="tag">GitHub projects</span>
+            <span class="tag">Video games</span>
+            <span class="tag">Servers</span>
+          </div>
+        </div>
+
+        <div class="tag-group">
+          <p class="tag-group__label">Aiming for</p>
+          <div class="tags">
+            <span class="tag tag--accent">Engineering</span>
+            <span class="tag tag--accent">Software Development</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="section" id="projects">
+        <p class="eyebrow">// 03 projects</p>
+        <h2 class="section__title">Things I've built</h2>
+        <p class="section__subtitle">A running log of side projects, hackathon builds, and things that just seemed fun to make.</p>
+
+        <div class="project-grid">
+
+          <a class="project-card" href="https://liamjones989.github.io/pc-paramedic/" target="_blank" rel="noopener">
+            <span class="project-card__tag">Business</span>
+            <h3 class="project-card__title">PC Paramedic</h3>
+            <p class="project-card__desc">My own computer repair service — diagnosing and fixing PCs for real clients.</p>
+            <span class="project-card__link">Visit site →</span>
+          </a>
+
+          <a class="project-card" href="https://liamjones989.github.io/If-I-Ran-The-World/" target="_blank" rel="noopener">
+            <span class="project-card__tag">Web Experiment</span>
+            <h3 class="project-card__title">If I Ran The World</h3>
+            <p class="project-card__desc">A creative web project exploring what I'd change if I were in charge.</p>
+            <span class="project-card__link">Visit site →</span>
+          </a>
+
+          <a class="project-card" href="https://liamjones989.github.io/Famous-Flyers/" target="_blank" rel="noopener">
+            <span class="project-card__tag">Maps &amp; Data</span>
+            <h3 class="project-card__title">Famous Flyers</h3>
+            <p class="project-card__desc">A map project charting famous flights across history.</p>
+            <span class="project-card__link">Visit site →</span>
+          </a>
+
+          <a class="project-card" href="https://liamjones989.github.io/Conspiracy-Theory-Generator/" target="_blank" rel="noopener">
+            <span class="project-card__tag">Fun Tool</span>
+            <h3 class="project-card__title">Conspiracy Theory Generator</h3>
+            <p class="project-card__desc">Generates ridiculous, clearly-fake conspiracy theories on demand.</p>
+            <span class="project-card__link">Visit site →</span>
+          </a>
+
+          <a class="project-card" href="https://liamjones989.github.io/Poppy-Plant-Hackathon/" target="_blank" rel="noopener">
+            <span class="project-card__tag">Hackathon</span>
+            <h3 class="project-card__title">Virtual Pet Plant</h3>
+            <p class="project-card__desc">A hackathon build — a little virtual plant you keep alive and grow.</p>
+            <span class="project-card__link">Visit site →</span>
+          </a>
+
+          <a class="project-card" href="https://liamjones989.github.io/EarthScaleMC/" target="_blank" rel="noopener">
+            <span class="project-card__tag">Server</span>
+            <h3 class="project-card__title">EarthScaleMC</h3>
+            <p class="project-card__desc">My Minecraft server, built at Earth scale for anyone to join and explore.</p>
+            <span class="project-card__link">Visit site →</span>
+          </a>
+
+          <a class="project-card" href="https://titanhd.org/" target="_blank" rel="noopener">
+            <span class="project-card__tag">Infrastructure</span>
+            <h3 class="project-card__title">Home Server</h3>
+            <p class="project-card__desc">A self-hosted home server I run and maintain — my hosting playground.</p>
+            <span class="project-card__link">Visit site →</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Fun zone -->
+      <section class="section" id="fun">
+        <p class="eyebrow">// 04 fun zone</p>
+        <h2 class="section__title">Take a break</h2>
+
+        <div class="fun-grid">
+
+          <div class="card">
+            <h3 class="card__title">😂 Random joke generator</h3>
+            <p class="card__desc">Fair warning — these are dad-joke tier.</p>
+            <button id="jokeButton" class="btn btn--primary">Tell me a joke</button>
+            <p id="jokeDisplay" class="joke-output"></p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">🖱️ Clicker game</h3>
+            <p class="card__desc">Click the button. That's it. That's the game.</p>
+            <button id="clickerButton" class="btn btn--primary btn--big">Click me!</button>
+            <div class="clicker-stats">
+              <div>
+                <span class="clicker-stats__value" id="clickCount">0</span>
+                <span class="clicker-stats__label">clicks</span>
+              </div>
+              <div>
+                <span class="clicker-stats__value" id="highScore">0</span>
+                <span class="clicker-stats__label">high score</span>
+              </div>
+            </div>
+            <button id="resetButton" class="btn btn--ghost btn--small">Reset</button>
+          </div>
+
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>Built by Liam Jones · thanks for stopping by.</p>
+      </footer>
+
+    </main>
   </div>
+
+  <div class="toast" id="toast">Copied</div>
 
   <script src="script.js"></script>
 </body>
