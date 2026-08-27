@@ -92,6 +92,71 @@ p { margin: 0; }
 }
 
 /* =========================================================
+   Custom scrollbar
+   ========================================================= */
+html, body {
+  scrollbar-width: thin;                         /* Firefox */
+  scrollbar-color: var(--accent) var(--bg-elev);  /* Firefox: thumb track */
+}
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-elev);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 999px;
+  border: 2px solid var(--bg-elev);
+  background-clip: padding-box;
+  transition: background-color 0.2s var(--ease);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
+}
+::-webkit-scrollbar-corner {
+  background: var(--bg-elev);
+}
+
+/* Slightly slimmer scrollbar inside the sidebar's own scroll area */
+.sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border: none;
+  border-radius: 999px;
+}
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+}
+
+/* =========================================================
+   Scroll progress bar
+   ========================================================= */
+.scroll-progress {
+  position: fixed;
+  top: var(--statusbar-h);
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  z-index: 99;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* =========================================================
    Status bar (signature element)
    ========================================================= */
 .statusbar {
