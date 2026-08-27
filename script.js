@@ -41,6 +41,22 @@ updateClock();
 setInterval(updateClock, 1000);
 
 // =========================================================
+// Scroll progress bar
+// =========================================================
+const scrollProgress = document.getElementById("scrollProgress");
+
+function updateScrollProgress() {
+  if (!scrollProgress) return;
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  scrollProgress.style.width = `${pct}%`;
+}
+window.addEventListener("scroll", updateScrollProgress, { passive: true });
+window.addEventListener("resize", updateScrollProgress);
+updateScrollProgress();
+
+// =========================================================
 // Mobile sidebar drawer
 // =========================================================
 const navToggle = document.getElementById("navToggle");
